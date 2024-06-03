@@ -33,7 +33,7 @@ const OpenEnded = ({ question, onCorrect, onIncorrect }: OpenEndedProps) => {
       <View style={styles.speechContainer}>
         <Image
           style={styles.eddy}
-          source={require("../../../assets/images/eddy.png")}
+          source={question.image}
           resizeMode="contain"
         />
         <View style={styles.textContainer}>

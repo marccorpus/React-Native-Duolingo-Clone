@@ -39,6 +39,7 @@ export default [
     type: "OPEN_ENDED",
     text: "Yo soy un hombre",
     answer: "I am a man",
+    image: require("../images/eddy.png"),
   },
   {
     id: 3,
@@ -80,6 +81,7 @@ export default [
     type: "OPEN_ENDED",
     text: "La mujer",
     answer: "the woman",
+    image: require("../images/zari.png"),
   },
   {
     id: 5,
@@ -121,6 +123,7 @@ export default [
     type: "OPEN_ENDED",
     text: "Me gusta React Native",
     answer: "I like react native",
+    image: require("../images/vikram.png"),
   },
   {
     id: 7,

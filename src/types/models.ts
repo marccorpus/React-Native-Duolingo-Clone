@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 interface Question {
   id: number;
   type: string;
@@ -18,4 +20,5 @@ export interface IImageMultipleChoice extends Question {
 export interface IOpenEnded extends Question {
   text: string;
   answer: string;
+  image: ImageSourcePropType;
 }
