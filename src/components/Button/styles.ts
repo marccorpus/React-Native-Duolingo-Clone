@@ -5,12 +5,13 @@ import fonts from "../../themes/fonts";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.maskGreen,
-    borderColor: colors.featherGreen,
+    backgroundColor: colors.mediumGreen,
+    borderColor: colors.darkGreen,
     borderWidth: 2,
     borderBottomWidth: 6,
-    borderRadius: 6,
+    borderRadius: 8,
     padding: 8,
+    marginVertical: 12,
   },
   text: {
     color: colors.white,

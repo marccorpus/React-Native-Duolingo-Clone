@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     fontSize: fonts.xl,
     fontWeight: "bold",
     color: colors.black,
+    marginVertical: 12,
   },
 });
 

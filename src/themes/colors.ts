@@ -6,8 +6,9 @@ export default {
   mediumGray: "#e5e5e5",
   darkGray: "#afafaf",
 
-  maskGreen: "#89e219",
-  featherGreen: "#58cc02",
+  lightGreen: "#dbf6ba",
+  mediumGreen: "#89e219",
+  darkGreen: "#58cc02",
 
   yellow: "#ffc800",
 

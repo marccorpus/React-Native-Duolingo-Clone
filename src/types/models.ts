@@ -3,17 +3,19 @@ interface Question {
   type: string;
 }
 
-export interface IImageMultipleChoice extends Question {
-  question: string;
-  options: Array<{
-    id: number;
-    image: string;
-    text: string;
-    correct: boolean;
-  }>;
+export interface IImageMultipleChoiceOption {
+  id: number;
+  image: string;
+  text: string;
+  correct: boolean;
 }
 
-export interface IOpenEnded {
+export interface IImageMultipleChoice extends Question {
+  question: string;
+  options: IImageMultipleChoiceOption[];
+}
+
+export interface IOpenEnded extends Question {
   text: string;
   answer: string;
 }
