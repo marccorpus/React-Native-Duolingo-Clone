@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
+    color: colors.black,
     backgroundColor: colors.mediumGray,
     borderRadius: 8,
     padding: 8,

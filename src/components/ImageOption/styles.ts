@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: fonts.lg,
     fontWeight: "bold",
+    color: colors.black,
   },
   selectedText: {
     color: colors.darkGreen,
