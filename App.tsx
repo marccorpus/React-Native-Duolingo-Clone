@@ -11,13 +11,24 @@ import { IImageMultipleChoice, IOpenEnded } from "./src/types/models";
 import questions from "./assets/data/questions";
 
 export default function App() {
-  const [lives, setLives] = useState(5);
+  const [lives, setLives] = useState(3);
   const [questionIndex, setQuestionIndex] = useState(0);
 
   const question = questions[questionIndex];
   const completetionRate = ((questionIndex + 1) / questions.length) * 100;
 
   const correctHandler = () => {
+    if (questionIndex + 1 > questions.length - 1) {
+      Alert.alert("You Won", "Restart Game.", [
+        {
+          text: "Ok",
+          onPress: restartHandler,
+        },
+      ]);
+
+      return;
+    }
+
     setQuestionIndex((currentQuestionIndex) => currentQuestionIndex + 1);
   };
 
@@ -25,12 +36,13 @@ export default function App() {
     setLives((currentLives) => currentLives - 1);
 
     if (lives <= 1) {
-      Alert.alert("Game Over", "Please restart.", [
+      Alert.alert("Game Over", "Restart Game.", [
         {
           text: "Ok",
           onPress: restartHandler,
         },
       ]);
+
       return;
     }
 
@@ -38,7 +50,7 @@ export default function App() {
   };
 
   const restartHandler = () => {
-    setLives(5);
+    setLives(3);
     setQuestionIndex(0);
   };
 
@@ -55,7 +67,11 @@ export default function App() {
       )}
 
       {question.type === "OPEN_ENDED" && (
-        <OpenEnded question={question as IOpenEnded} />
+        <OpenEnded
+          question={question as IOpenEnded}
+          onCorrect={correctHandler}
+          onIncorrect={incorrectHandler}
+        />
       )}
     </Container>
   );

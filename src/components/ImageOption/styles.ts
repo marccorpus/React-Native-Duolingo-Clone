@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontSize: fonts.md,
+    fontSize: fonts.lg,
     fontWeight: "bold",
   },
   selectedText: {
