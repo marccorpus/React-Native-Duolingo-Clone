@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { View, Image, Text, TextInput } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  TextInput,
+  KeyboardAvoidingView,
+} from "react-native";
 
 import Instruction from "../../components/Instruction";
 import Button from "../../components/Button";
@@ -53,9 +59,11 @@ const OpenEnded = ({ question, onCorrect, onIncorrect }: OpenEndedProps) => {
         autoCorrect={false}
       />
 
-      <Button onPress={checkHandler} disabled={!input.trim()}>
-        Check
-      </Button>
+      <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={90}>
+        <Button onPress={checkHandler} disabled={!input.trim()}>
+          Check
+        </Button>
+      </KeyboardAvoidingView>
     </View>
   );
 };
