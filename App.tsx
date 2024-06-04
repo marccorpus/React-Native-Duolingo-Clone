@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Container from "./src/components/Container";
 import Header from "./src/components/Header";
 
+import Loading from "./src/screens/Loading";
 import TranslateSentence from "./src/screens/TranslateSentence";
 import ImageMultipleChoice from "./src/screens/ImageMultipleChoice";
 import OpenEnded from "./src/screens/OpenEnded";
@@ -16,6 +18,8 @@ import {
 import questions from "./assets/data/questions";
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const [lives, setLives] = useState(3);
   const [questionIndex, setQuestionIndex] = useState(0);
 
@@ -58,6 +62,35 @@ export default function App() {
     setLives(3);
     setQuestionIndex(0);
   };
+
+  const loadDataHandler = async () => {
+    const _lives = await AsyncStorage.getItem("lives");
+    const _questionIndex = await AsyncStorage.getItem("questionIndex");
+
+    if (_lives) setLives(parseInt(_lives));
+    if (_questionIndex) setQuestionIndex(parseInt(_questionIndex));
+
+    setIsLoading(false);
+  };
+
+  const saveDataHandler = async () => {
+    await AsyncStorage.setItem("lives", String(lives));
+    await AsyncStorage.setItem("questionIndex", String(questionIndex));
+  };
+
+  useEffect(() => {
+    loadDataHandler();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      saveDataHandler();
+    }
+  }, [isLoading, lives, questionIndex]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <Container>
