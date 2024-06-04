@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     borderColor: colors.darkGray,
     borderRadius: 8,
     padding: 8,
+    backgroundColor: colors.white,
   },
   selectedContainer: {
     borderColor: colors.darkGreen,

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     height: 150,
   },
   textContainer: {
+    flex: 1,
     borderWidth: 2,
     borderColor: colors.darkGray,
     borderRadius: 8,
