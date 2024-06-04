@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import Instruction from "../../components/Instruction";
+import Speech from "../../components/Speech";
 import Button from "../../components/Button";
 
 import styles from "./styles";
@@ -36,16 +37,7 @@ const OpenEnded = ({ question, onCorrect, onIncorrect }: OpenEndedProps) => {
     <View style={styles.container}>
       <Instruction>Translate this sentence</Instruction>
 
-      <View style={styles.speechContainer}>
-        <Image
-          style={styles.eddy}
-          source={question.image}
-          resizeMode="contain"
-        />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>{question.text}</Text>
-        </View>
-      </View>
+      <Speech image={question.image} text={question.text} />
 
       <TextInput
         style={styles.textInput}

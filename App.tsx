@@ -4,10 +4,15 @@ import { Alert } from "react-native";
 import Container from "./src/components/Container";
 import Header from "./src/components/Header";
 
+import TranslateSentence from "./src/screens/TranslateSentence";
 import ImageMultipleChoice from "./src/screens/ImageMultipleChoice";
 import OpenEnded from "./src/screens/OpenEnded";
 
-import { IImageMultipleChoice, IOpenEnded } from "./src/types/models";
+import {
+  ITranslateSentence,
+  IImageMultipleChoice,
+  IOpenEnded,
+} from "./src/types/models";
 import questions from "./assets/data/questions";
 
 export default function App() {
@@ -36,7 +41,7 @@ export default function App() {
     setLives((currentLives) => currentLives - 1);
 
     if (lives <= 1) {
-      Alert.alert("Game Over", "Restart Game.", [
+      Alert.alert("You Lost", "Restart Game.", [
         {
           text: "Ok",
           onPress: restartHandler,
@@ -69,6 +74,14 @@ export default function App() {
       {question.type === "OPEN_ENDED" && (
         <OpenEnded
           question={question as IOpenEnded}
+          onCorrect={correctHandler}
+          onIncorrect={incorrectHandler}
+        />
+      )}
+
+      {question.type === "TRANSLATE_SENTENCE" && (
+        <TranslateSentence
+          question={question as ITranslateSentence}
           onCorrect={correctHandler}
           onIncorrect={incorrectHandler}
         />

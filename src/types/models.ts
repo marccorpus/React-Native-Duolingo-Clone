@@ -18,7 +18,14 @@ export interface IImageMultipleChoice extends Question {
 }
 
 export interface IOpenEnded extends Question {
+  image: ImageSourcePropType;
   text: string;
   answer: string;
+}
+
+export interface ITranslateSentence extends Question {
   image: ImageSourcePropType;
+  text: string;
+  options: string[];
+  answer: string[];
 }
